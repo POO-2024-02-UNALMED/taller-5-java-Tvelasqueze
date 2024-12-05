@@ -1,64 +1,53 @@
-package gestion;
 
+package gestion;
 import java.util.ArrayList;
 
-public class Zoologico {
+public class Zoologico{
     private String nombre;
     private String ubicacion;
-    private ArrayList<Zona> zonas= new ArrayList<Zona>();
+    private ArrayList<Zona> zonas = new ArrayList<Zona>();
 
+    public Zoologico(){}
 
-    //Constructores
-
-    public Zoologico(String nombre, String ubicacion) {
+    public Zoologico(String nombre, String ubicacion){
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-    }    
-
-    public Zoologico() {
     }
 
-    //Set and Get
+    public void agregarZonas(Zona nuevaZona){
+        zonas.add(nuevaZona);
+    }
 
-    public String getNombre() {
+    public int cantidadTotalAnimales(){
+        int totalAnimales = 0;
+        for(Zona zona: zonas){
+            totalAnimales += zona.cantidadAnimales();
+        }
+
+        return totalAnimales;
+    }
+
+    public String getNombre(){
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nuevoNombre){
+        nombre = nuevoNombre;
     }
 
-    public String getUbicacion() {
+    public String getUbicacion(){
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setUbicacion(String nuevaUbicacion){
+        ubicacion = nuevaUbicacion;
     }
 
-    public ArrayList<Zona> getZonas() {
+    public ArrayList<Zona> getZona(){
         return zonas;
     }
 
-    public void setZonas(ArrayList<Zona> zonas) {
-        this.zonas = zonas;
+    public void setZona(ArrayList<Zona> nuevasZonas){
+        zonas = nuevasZonas;
     }
-    
-    public ArrayList<Zona> getZona(){
-    	return zonas;
-    }
-
-    //Metodos
-    public void agregarZonas(Zona zona){
-        this.zonas.add(zona);
-    }
-
-    public int cantidadTotalAnimales() {
-		int c = 0;
-        for (int i=0; i<zonas.size(); i++){
-            c=+zonas.get(i).cantidadAnimales();
-        }
-        return c;
-	}
-    
 }
